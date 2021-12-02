@@ -31,6 +31,7 @@ class GTA_loader(Dataset):
 
     def __getitem__(self, idx):
         img_in_path, img_tar_path = self.data[idx] # Path for target + input
+
         img_in = cv2.imread(img_in_path)[:, :, ::-1]
         img_in = cv2.resize(img_in, self.img_dim)
         img_input = torch.from_numpy(img_in)
@@ -138,6 +139,17 @@ colors = ((128, 64, 128), (244, 35, 232), (0, 0, 142), (0, 0, 70), (0, 0, 0))
 #%% Netork
 
 
+import neptune.new as neptune
+
+token = "eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiIzYWVhMmY0Mi05ZGMyLTQ3OGUtYTU5Mi04NzM4YTE0MWI0NTAifQ=="
+
+run = neptune.init(
+    project="andersschultz12/test-project",
+    api_token=token,
+)  # your credentials
+
+
+
 class testnet(nn.Module):
     def __init__(self):
         super(testnet, self).__init__()
@@ -183,6 +195,7 @@ for iEpoch in range(nEpoch):
         loss = lossFunc(y_pred, lab)
         loss.backward()
         optimizer.step()
+        run["testnet/loss"].log(loss.item())
         i += 1
         print(i)
         if i == 100:
@@ -201,3 +214,5 @@ plt.imshow(np.transpose(img1[0].numpy(), (1, 2, 0)))
 f.add_subplot(1,2, 2)
 plt.imshow(np.transpose(y[0].detach().numpy(), (1, 2, 0)))
 plt.show(block=True)
+
+run.stop()
