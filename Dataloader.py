@@ -75,8 +75,9 @@ img1, lab1 = dataiter.next()
 # Blue : sky [ 70 130 180]
 # Dark blue : other vichels  (0, 0, 142)
 # Very dark blue : big vicheles 0, 0, 70
+# Motor cycle : 0, 0, 230
 
-# Red : humans
+# Red : humans (220, 20, 60)
 
 # Black : own vichele (0, 0, 0)
 # Brown : Trash-cans/fire-hydrants/big signs
