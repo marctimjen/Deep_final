@@ -142,7 +142,7 @@ colors = {(0, 0, 0):0, (244, 35, 232):1, (128, 64, 128):2, (0, 0, 142):3,
 
 img_dim = (900, 800)
 
-for i in range(1, 3):
+for i in range(3, 30):
     path = f"C:/Users/Bruger/Desktop/Billeder/images/Target ({i}).png"
     img_tar = cv2.imread(path)[:, :, ::-1]
     img_tar = cv2.resize(img_tar, img_dim)
