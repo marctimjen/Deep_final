@@ -18,7 +18,7 @@ import torch.nn.functional as F
 
 class GTA_loader(Dataset):
     def __init__(self):
-        self.imgs_path = "C:/Users/Bruger/Desktop/Billeder/images/"
+        self.imgs_path = "C:/Users/Marc/Desktop/Billeder/images/"
         self.data = []
         for i in range(1, 2501):
             self.data.append([self.imgs_path + f"Input ({i}).png",
@@ -48,7 +48,7 @@ class GTA_loader(Dataset):
 
 
 
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(device)
 
 #8
@@ -70,7 +70,7 @@ trainloader = torch.utils.data.DataLoader(dataset,
 dataiter = iter(trainloader)
 img1, lab1 = dataiter.next()
 
-
+print(img1)
 
 # Blue : sky [ 70 130 180]
 # Dark blue : other vichels  (0, 0, 142)
@@ -226,101 +226,102 @@ class Down_Scale(nn.Module): # red + double_conv
 
 
 
-class Up_Scale(nn.Module): # Green arrow
-    def __init__(self, in_channels, out_channels):
-        super().__init__()
-        #self.up = nn.Upsample(scale_factor=2, mode='nearest'),
-        self.up_conv1 = nn.ConvTranspose2d(in_channels, out_channels, kernel_size = 3, padding = 1)
-        #self.up_conv2 = nn.ConvTranspose2d(out_channels, out_channels, kernel_size = 3)
-        self.up = nn.Upsample(scale_factor=2, mode='nearest')
-        self.doub = Double_Convolution(in_channels, out_channels)
-
-    def forward(self, x, y):
-        print(x.shape)
-        print(y.shape)
-        x = self.up_conv1(x)
-        #x = self.up_conv2(x)
-        x = self.up(x)
-        print(x.shape)
-        ind = torch.cat((y, x), 1)
-        print(ind.shape)
-        out = self.doub(ind)
-        return out
-
-
-class OutConv(nn.Module):
-    def __init__(self, in_channels, out_channels):
-        super(OutConv, self).__init__()
-        self.conv = nn.Conv2d(in_channels, out_channels, kernel_size=1)
-
-    def forward(self, x):
-        return self.conv(x)
-
-
-class UNet(nn.Module):
-    def __init__(self, n_channels, n_classes):
-        super(UNet, self).__init__()
-
-        self.n_channels = n_channels
-        self.n_classes = n_classes
-
-        self.inc = Double_Convolution(n_channels, 64)
-        self.down1 = Down_Scale(64, 128)
-        self.down2 = Down_Scale(128, 256)
-        self.down3 = Down_Scale(256, 512)
-        self.down4 = Down_Scale(512, 1024)
-        self.up1 = Up_Scale(1024, 512)
-        self.up2 = Up_Scale(512, 256)
-        self.up3 = Up_Scale(256, 128)
-        self.up4 = Up_Scale(128, 64)
-        self.outc = OutConv(64, n_classes)
-
-    def forward(self, x):
-        x1 = self.inc(x)
-        x2 = self.down1(x1)
-        x3 = self.down2(x2)
-        x4 = self.down3(x3)
-        x5 = self.down4(x4)
-        x = self.up1(x5, x4)
-        x = self.up2(x, x3)
-        x = self.up3(x, x2)
-        x = self.up4(x, x1)
-        logits = self.outc(x)
-        return logits
-
-
-
-lossFunc = nn.MSELoss()
-model = UNet(3, 3).to(device)
-optimizer = SGD(model.parameters(), lr=0.01, momentum=0.9)
-
-i = 0
-nEpoch = 1
-for iEpoch in range(nEpoch):
-    for img, lab in trainloader:
-        y_pred = model(img)
-        model.zero_grad()
-        loss = lossFunc(y_pred, lab)
-        loss.backward()
-        optimizer.step()
-        #run["testnet/loss"].log(loss.item())
-        i += 1
-        print(i)
-        if i == 10:
-            break
-
-
-
-
-y = model(img1)
-y = y.to("cpu")
-img1 = img1.to("cpu")
-
-f = plt.figure()
-f.add_subplot(1,2, 1)
-plt.imshow(np.transpose(img1[0].numpy(), (1, 2, 0)))
-f.add_subplot(1,2, 2)
-plt.imshow(np.transpose(y[0].detach().numpy(), (1, 2, 0)))
-plt.show(block=True)
-
-#run.stop()
+#class Up_Scale(nn.Module): # Green arrow
+#    def __init__(self, in_channels, out_channels):
+#        super().__init__()
+#        #self.up = nn.Upsample(scale_factor=2, mode='nearest'),
+#        self.up_conv1 = nn.ConvTranspose2d(in_channels, out_channels, kernel_size = 3, padding = 1)
+#        #self.up_conv2 = nn.ConvTranspose2d(out_channels, out_channels, kernel_size = 3)
+#        self.up = nn.Upsample(scale_factor=2, mode='nearest')
+#        self.doub = Double_Convolution(in_channels, out_channels)
+#
+#    def forward(self, x, y):
+#        print(x.shape)
+#        print(y.shape)
+#        x = self.up_conv1(x)
+#        #x = self.up_conv2(x)
+#        x = self.up(x)
+#        print(x.shape)
+#        ind = torch.cat((y, x), 1)
+#        print(ind.shape)
+#        out = self.doub(ind)
+#        return out
+#
+#
+#class OutConv(nn.Module):
+#    def __init__(self, in_channels, out_channels):
+#        super(OutConv, self).__init__()
+#        self.conv = nn.Conv2d(in_channels, out_channels, kernel_size=1)
+#
+#    def forward(self, x):
+#        return self.conv(x)
+#
+#
+#class UNet(nn.Module):
+#    def __init__(self, n_channels, n_classes):
+#        super(UNet, self).__init__()
+#
+#        self.n_channels = n_channels
+#        self.n_classes = n_classes
+#
+#        self.inc = Double_Convolution(n_channels, 64)
+#        self.down1 = Down_Scale(64, 128)
+#        self.down2 = Down_Scale(128, 256)
+#        self.down3 = Down_Scale(256, 512)
+#        self.down4 = Down_Scale(512, 1024)
+#        self.up1 = Up_Scale(1024, 512)
+#        self.up2 = Up_Scale(512, 256)
+#        self.up3 = Up_Scale(256, 128)
+#        self.up4 = Up_Scale(128, 64)
+#        self.outc = OutConv(64, n_classes)
+#
+#    def forward(self, x):
+#        x1 = self.inc(x)
+#        x2 = self.down1(x1)
+#        x3 = self.down2(x2)
+#        x4 = self.down3(x3)
+#        x5 = self.down4(x4)
+#        x = self.up1(x5, x4)
+#        x = self.up2(x, x3)
+#        x = self.up3(x, x2)
+#        x = self.up4(x, x1)
+#        logits = self.outc(x)
+#        return logits
+#
+#
+#
+#lossFunc = nn.MSELoss()
+#model = UNet(3, 3).to(device)
+#optimizer = SGD(model.parameters(), lr=0.01, momentum=0.9)
+#
+#i = 0
+#nEpoch = 1
+#for iEpoch in range(nEpoch):
+#    for img, lab in trainloader:
+#        y_pred = model(img)
+#        model.zero_grad()
+#        loss = lossFunc(y_pred, lab)
+#        loss.backward()
+#        optimizer.step()
+#        #run["testnet/loss"].log(loss.item())
+#        i += 1
+#        print(i)
+#        if i == 10:
+#            break
+#
+#
+#
+#
+#y = model(img1)
+#y = y.to("cpu")
+#img1 = img1.to("cpu")
+#
+#f = plt.figure()
+#f.add_subplot(1,2, 1)
+#plt.imshow(np.transpose(img1[0].numpy(), (1, 2, 0)))
+#f.add_subplot(1,2, 2)
+#plt.imshow(np.transpose(y[0].detach().numpy(), (1, 2, 0)))
+#plt.show(block=True)
+#
+##run.stop()
+#
