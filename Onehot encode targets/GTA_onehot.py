@@ -8,7 +8,6 @@ colors = {(0, 0, 0):0, (244, 35, 232):1, (128, 64, 128):2, (0, 0, 142):3,
             (0, 0, 70):4, (0, 0, 230):5, (220, 20, 60):6}
 
 
-
 def onehot(image, width: int, height: int, col: dict):
     """
     This function takes the target pictures and onehot encode them. The amount

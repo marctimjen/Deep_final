@@ -1,12 +1,6 @@
 import cv2
-import numpy as np
-import torch.nn as nn
 import torch
 from torch.utils.data import Dataset, DataLoader
-import csv
-import matplotlib.pyplot as plt
-
-
 
 class GTA_loader(Dataset):
     """
@@ -23,7 +17,7 @@ class GTA_loader(Dataset):
             be sent to.
 
         Return:
-            tulpe: containing the input and target in tensor format
+            minibatch (tensor): containing the input and target.
         """
 
         self.device = device
