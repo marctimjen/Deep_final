@@ -2,7 +2,7 @@ import cv2
 import torch
 from torch.utils.data import Dataset, DataLoader
 
-class GTA_loader(Dataset):
+class GTA_hotloader(Dataset):
     """
     This data-loader reads images and targets. In this format neither the target
     nor the input are onehot encoded.
@@ -10,7 +10,7 @@ class GTA_loader(Dataset):
     def __init__(self, path: str, width: int, height: int, ind: list, device):
         """
         Args:
-            path (str): path to the images and targets.
+            path (str): path to the image- and onehot encoded folder.
             width (int): size given to the output.
             height (int): size given to the output.
             ind (list): list of indices for which pictures to load.
@@ -26,7 +26,7 @@ class GTA_loader(Dataset):
         self.data = []
         for i in ind:
             self.data.append([self.imgs_path + f"images/Input ({i}).png",
-                        self.imgs_path + f"samecolor/same ({i}).png"])
+                        self.imgs_path + f"onehot/one ({i}).pt"])
 
         self.img_dim = (width, height)
 
@@ -42,10 +42,7 @@ class GTA_loader(Dataset):
         img_input = img_input.permute(2, 0, 1)/255
         img_input = img_input.type(torch.float).to(self.device)
 
-        img_tar = cv2.imread(img_tar_path)[:, :, ::-1]
-        img_tar = cv2.resize(img_tar, self.img_dim)
-        img_target = torch.from_numpy(img_tar)
-        img_target = img_target.permute(2, 0, 1)/255
+        img_target = torch.load(img_tar_path)
         img_target = img_target.type(torch.float).to(self.device)
 
         return img_input, img_target
