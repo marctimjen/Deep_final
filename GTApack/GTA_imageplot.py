@@ -12,7 +12,7 @@ def GTA_imageplot(image, target, output = None):
         image (tensor): the input image.
         target (tensor): the target in image format.
         output (tensor): the output from the network. Will not be plottet if not
-        given.
+        given. Remember to detach the tensor before calling to this function.
 
     Plots:
         Makes a plot with the input on the left and the target and output on the
@@ -35,6 +35,6 @@ def GTA_imageplot(image, target, output = None):
 
     if not(output == None):
         f.add_subplot(1, num, 3)
-        plt.imshow(np.transpose(target.numpy(), (1, 2, 0)))
+        plt.imshow(np.transpose(output.numpy(), (1, 2, 0)))
 
     plt.show(block=True)
