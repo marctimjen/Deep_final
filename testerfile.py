@@ -19,7 +19,7 @@ val_set, train_set = torch.utils.data.random_split([i for i in range(0, 1200)], 
 dataset = GTA_hotloader(path = "C:/Users/Marc/Desktop/Billeder/", width = 400, height = 300, ind = train_set, device = device)
 
 
-print([i for i in val_set])
+#print([i for i in val_set])
 
 batch_size = 1
 # Set up the dataloader.

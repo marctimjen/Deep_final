@@ -70,9 +70,11 @@ class OutConv(nn.Module):
     def __init__(self, in_channels, out_channels):
         super(OutConv, self).__init__()
         self.conv = nn.Conv2d(in_channels, out_channels, kernel_size=1)
+        self.soft = nn.Softmax(dim=1)
 
     def forward(self, x):
-        return self.conv(x)
+        x = self.conv(x)
+        return self.soft(x)
 
 
 class GTA_Unet(nn.Module):
