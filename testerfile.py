@@ -4,6 +4,7 @@ from GTApack.GTA_hotloader import GTA_hotloader
 from GTApack.GTA_imageplot import GTA_imageplot
 from GTApack.GTA_antihot import GTA_antihot
 import torch
+import numpy as np
 
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -16,7 +17,10 @@ val_set, train_set = torch.utils.data.random_split([i for i in range(0, 1200)], 
                                     generator=torch.Generator().manual_seed(42))
 
 
-dataset = GTA_hotloader(path = "C:/Users/Marc/Desktop/Billeder/", width = 400, height = 300, ind = train_set, device = device)
+train_set = np.random.randint(1200, size=10)
+print(type(train_set))
+
+dataset = GTA_hotloader(path = "C:/Users/Marc/Desktop/Billeder/train/", width = 400, height = 300, ind = train_set, device = device)
 
 
 #print([i for i in val_set])
@@ -37,14 +41,19 @@ images, targets = dataiter.next()
 
 
 colors = {(0, 0, 0):0, (244, 35, 232):1, (128, 64, 128):2, (0, 0, 142):3,
-            (0, 0, 70):4, (0, 0, 230):5, (220, 20, 60):6}
+            (0, 0, 70):4, (0, 0, 230):5, (220, 20, 60):6, (255, 0, 0):6,
+            (0, 60, 100):7, (0, 80, 100):8}
 
 
-targets = GTA_antihot(targets[0].cpu(), colors, 400, 300)
+for img, lab in trainloader:
 
-print(targets.shape)
+    print(lab[0])
 
-GTA_imageplot(images[0], targets)
+    targets = GTA_antihot(lab[0].cpu(), colors, 400, 300)
+
+    print(targets.shape)
+
+    GTA_imageplot(img[0], targets)
 
 #%% For the onehot encoder
 

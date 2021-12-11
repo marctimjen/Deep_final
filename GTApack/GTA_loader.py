@@ -26,7 +26,7 @@ class GTA_loader(Dataset):
         self.data = []
         for i in ind:
             self.data.append([self.imgs_path + f"images/Input ({i}).png",
-                        self.imgs_path + f"samecolor/same ({i}).png"])
+                        self.imgs_path + f"images/Target ({i}).png"])
 
         self.img_dim = (width, height)
 
