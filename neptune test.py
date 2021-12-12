@@ -14,10 +14,10 @@ token = "eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR
 run = neptune.init(
     project="Deep-Learning-test/Deep-Learning-Test",
     api_token=token,
-    run="DEEP-12"
+    run="DEEP-35"
     )
 
-net = run['network2/network_weights'].download()
+net = run['network1/network_weights'].download()
 print(net)
 run.stop()
 
