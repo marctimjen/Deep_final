@@ -1,0 +1,5 @@
+{"obj": {"type": "LogFloats", "path": ["monitoring", "cpu"], "values": [{"value": 5.4, "step": null, "ts": 1639298158.8720598}]}, "version": 1}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "memory"], "values": [{"value": 6.714679718017578, "step": null, "ts": 1639298158.8720598}]}, "version": 2}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "gpu_memory"], "values": [{"value": 0.051025390625, "step": null, "ts": 1639298158.8720598}]}, "version": 3}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "   step                                              value               timestamp\n0   0.0  OrderedDict([('inc.double_conv.0.weight', tens... 2021-12-12 09:31:47.274", "step": null, "ts": 1639298159.2410321}]}, "version": 4}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1639298159.2420323}]}, "version": 5}

@@ -1,0 +1,7 @@
+{"obj": {"type": "LogFloats", "path": ["monitoring", "cpu"], "values": [{"value": 12.2, "step": null, "ts": 1639299222.3983588}]}, "version": 1}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "memory"], "values": [{"value": 7.834758758544922, "step": null, "ts": 1639299222.3983588}]}, "version": 2}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "gpu_memory"], "values": [{"value": 0.051025390625, "step": null, "ts": 1639299222.3983588}]}, "version": 3}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "<class 'str'>", "step": null, "ts": 1639299222.7880023}]}, "version": 4}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1639299222.7880023}]}, "version": 5}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "{'order_id': 'xxxxxx', 'tracking_id': 'xxxxxx', 'bank_ref_no': 'xxxxx', 'order_status': 'Success'}", "step": null, "ts": 1639299222.789003}]}, "version": 6}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1639299222.789003}]}, "version": 7}

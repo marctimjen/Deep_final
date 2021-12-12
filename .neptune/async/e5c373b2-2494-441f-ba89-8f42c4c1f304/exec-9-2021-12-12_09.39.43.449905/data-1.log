@@ -1,0 +1,14 @@
+{"obj": {"type": "LogFloats", "path": ["monitoring", "cpu"], "values": [{"value": 6.3, "step": null, "ts": 1639298383.5928702}]}, "version": 1}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "memory"], "values": [{"value": 6.997005462646484, "step": null, "ts": 1639298383.5928702}]}, "version": 2}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "gpu_memory"], "values": [{"value": 0.051025390625, "step": null, "ts": 1639298383.5928702}]}, "version": 3}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "traceback"], "values": [{"value": "An uncaught exception occurred while run was active on worker DESKTOP-SDMAFDQ.", "step": null, "ts": 1639298383.999788}, {"value": "Marking run as failed", "step": null, "ts": 1639298383.999788}, {"value": "Traceback:", "step": null, "ts": 1639298383.999788}, {"value": "  File \"C:\\Users\\Marc\\Documents\\GitHub\\Deep_final\\neptune test.py\", line 20, in <module>\n    model.load_state_dict(torch.load(net.iloc[0][\"value\"]))\n", "step": null, "ts": 1639298383.999788}, {"value": "name 'torch' is not defined", "step": null, "ts": 1639298383.999788}]}, "version": 4}
+{"obj": {"type": "AssignBool", "path": ["sys", "failed"], "value": true}, "version": 5}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "Traceback (most recent call last):\n", "step": null, "ts": 1639298383.999788}]}, "version": 6}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "  File \"C:\\Users\\Marc\\Documents\\GitHub\\Deep_final\\neptune test.py\", line 20, in <module>\n", "step": null, "ts": 1639298384.0007894}]}, "version": 7}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "    ", "step": null, "ts": 1639298384.0017905}]}, "version": 8}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "model.load_state_dict(torch.load(net.iloc[0][\"value\"]))", "step": null, "ts": 1639298384.0017905}]}, "version": 9}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1639298384.0017905}]}, "version": 10}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "NameError", "step": null, "ts": 1639298384.0017905}]}, "version": 11}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": ": ", "step": null, "ts": 1639298384.0017905}]}, "version": 12}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "name 'torch' is not defined", "step": null, "ts": 1639298384.0017905}]}, "version": 13}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1639298384.0017905}]}, "version": 14}

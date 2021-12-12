@@ -1,0 +1,20 @@
+{"obj": {"type": "LogFloats", "path": ["monitoring", "cpu"], "values": [{"value": 6.7, "step": null, "ts": 1639299238.7242262}]}, "version": 1}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "memory"], "values": [{"value": 7.879371643066406, "step": null, "ts": 1639299238.7242262}]}, "version": 2}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "gpu_memory"], "values": [{"value": 0.051025390625, "step": null, "ts": 1639299238.7242262}]}, "version": 3}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "<class 'str'>", "step": null, "ts": 1639299239.1143835}]}, "version": 4}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1639299239.1143835}]}, "version": 5}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "traceback"], "values": [{"value": "An uncaught exception occurred while run was active on worker DESKTOP-SDMAFDQ.", "step": null, "ts": 1639299239.1172342}, {"value": "Marking run as failed", "step": null, "ts": 1639299239.1172342}, {"value": "Traceback:", "step": null, "ts": 1639299239.1172342}, {"value": "  File \"C:\\Users\\Marc\\Documents\\GitHub\\Deep_final\\neptune test.py\", line 28, in <module>\n    dct = dict(eval(x))\n", "step": null, "ts": 1639299239.1172342}, {"value": "unexpected EOF while parsing (<string>, line 35)", "step": null, "ts": 1639299239.1172342}]}, "version": 6}
+{"obj": {"type": "AssignBool", "path": ["sys", "failed"], "value": true}, "version": 7}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "Traceback (most recent call last):\n", "step": null, "ts": 1639299239.1172342}]}, "version": 8}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "  File \"C:\\Users\\Marc\\Documents\\GitHub\\Deep_final\\neptune test.py\", line 28, in <module>\n", "step": null, "ts": 1639299239.1172342}]}, "version": 9}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "    ", "step": null, "ts": 1639299239.1182368}]}, "version": 10}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "dct = dict(eval(x))", "step": null, "ts": 1639299239.1182368}]}, "version": 11}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1639299239.1182368}]}, "version": 12}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "  File \"<string>\", line 35\n", "step": null, "ts": 1639299239.1182368}]}, "version": 13}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "    ", "step": null, "ts": 1639299239.1182368}]}, "version": 14}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "", "step": null, "ts": 1639299239.1192372}]}, "version": 15}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1639299239.1192372}]}, "version": 16}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "SyntaxError", "step": null, "ts": 1639299239.1192372}]}, "version": 17}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": ": ", "step": null, "ts": 1639299239.1192372}]}, "version": 18}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "unexpected EOF while parsing", "step": null, "ts": 1639299239.1192372}]}, "version": 19}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1639299239.1192372}]}, "version": 20}

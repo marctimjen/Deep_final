@@ -1,0 +1,39 @@
+{"obj": {"type": "AssignString", "path": ["sys", "name"], "value": "Untitled"}, "version": 1}
+{"obj": {"type": "AssignString", "path": ["sys", "description"], "value": ""}, "version": 2}
+{"obj": {"type": "AssignString", "path": ["sys", "hostname"], "value": "DESKTOP-SDMAFDQ"}, "version": 3}
+{"obj": {"type": "AssignBool", "path": ["sys", "failed"], "value": false}, "version": 4}
+{"obj": {"type": "ClearStringLog", "path": ["monitoring", "stdout"]}, "version": 5}
+{"obj": {"type": "ClearStringLog", "path": ["monitoring", "stderr"]}, "version": 6}
+{"obj": {"type": "AssignString", "path": ["source_code", "entrypoint"], "value": "trainer.py"}, "version": 7}
+{"obj": {"type": "UploadFileSet", "path": ["source_code", "files"], "file_globs": ["C:\\Users\\Marc\\Documents\\GitHub\\Deep_final\\trainer.py"], "reset": "False"}, "version": 8}
+{"obj": {"type": "ConfigFloatSeries", "path": ["monitoring", "cpu"], "min": 0.0, "max": 100.0, "unit": "%"}, "version": 9}
+{"obj": {"type": "ClearFloatLog", "path": ["monitoring", "cpu"]}, "version": 10}
+{"obj": {"type": "ConfigFloatSeries", "path": ["monitoring", "memory"], "min": 0.0, "max": 15.387199401855469, "unit": "GB"}, "version": 11}
+{"obj": {"type": "ClearFloatLog", "path": ["monitoring", "memory"]}, "version": 12}
+{"obj": {"type": "ConfigFloatSeries", "path": ["monitoring", "gpu"], "min": 0.0, "max": 100.0, "unit": "%"}, "version": 13}
+{"obj": {"type": "ClearFloatLog", "path": ["monitoring", "gpu"]}, "version": 14}
+{"obj": {"type": "ConfigFloatSeries", "path": ["monitoring", "gpu_memory"], "min": 0.0, "max": 4.0, "unit": "GB"}, "version": 15}
+{"obj": {"type": "ClearFloatLog", "path": ["monitoring", "gpu_memory"]}, "version": 16}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "cpu"], "values": [{"value": 10.4, "step": null, "ts": 1639303021.8966205}]}, "version": 17}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "memory"], "values": [{"value": 7.705711364746094, "step": null, "ts": 1639303021.8966205}]}, "version": 18}
+{"obj": {"type": "AssignFloat", "path": ["network", "parameters", "momentum"], "value": 0.9}, "version": 19}
+{"obj": {"type": "AssignString", "path": ["network", "parameters", "optimizer"], "value": "Adam"}, "version": 20}
+{"obj": {"type": "AssignString", "path": ["network", "parameters", "loss_function"], "value": "MSEloss"}, "version": 21}
+{"obj": {"type": "AssignString", "path": ["network", "parameters", "model"], "value": "GTA_Unet"}, "version": 22}
+{"obj": {"type": "AssignString", "path": ["network", "parameters", "scheduler"], "value": "CyclicLR"}, "version": 23}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "gpu_memory"], "values": [{"value": 0.051025390625, "step": null, "ts": 1639303021.8966205}]}, "version": 24}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "traceback"], "values": [{"value": "An uncaught exception occurred while run was active on worker DESKTOP-SDMAFDQ.", "step": null, "ts": 1639303022.1265543}, {"value": "Marking run as failed", "step": null, "ts": 1639303022.1265543}, {"value": "Traceback:", "step": null, "ts": 1639303022.1265543}, {"value": "  File \"C:\\Users\\Marc\\Documents\\GitHub\\Deep_final\\trainer.py\", line 95, in <module>\n    scheduler = CyclicLR(optimizer, base_lr=0.01, max_lr=0.1, step_size_up=10)\n", "step": null, "ts": 1639303022.1265543}, {"value": "  File \"C:\\Users\\Marc\\anaconda3\\envs\\deep\\lib\\site-packages\\torch\\optim\\lr_scheduler.py\", line 1127, in __init__\n    raise ValueError('optimizer must support momentum with `cycle_momentum` option enabled')\n", "step": null, "ts": 1639303022.1265543}, {"value": "optimizer must support momentum with `cycle_momentum` option enabled", "step": null, "ts": 1639303022.1265543}]}, "version": 25}
+{"obj": {"type": "AssignBool", "path": ["sys", "failed"], "value": true}, "version": 26}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "Traceback (most recent call last):\n", "step": null, "ts": 1639303022.1265543}]}, "version": 27}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "  File \"C:\\Users\\Marc\\Documents\\GitHub\\Deep_final\\trainer.py\", line 95, in <module>\n", "step": null, "ts": 1639303022.1275568}]}, "version": 28}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "    ", "step": null, "ts": 1639303022.1275568}]}, "version": 29}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "scheduler = CyclicLR(optimizer, base_lr=0.01, max_lr=0.1, step_size_up=10)", "step": null, "ts": 1639303022.1285572}]}, "version": 30}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1639303022.1285572}]}, "version": 31}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "  File \"C:\\Users\\Marc\\anaconda3\\envs\\deep\\lib\\site-packages\\torch\\optim\\lr_scheduler.py\", line 1127, in __init__\n", "step": null, "ts": 1639303022.1285572}]}, "version": 32}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "    ", "step": null, "ts": 1639303022.1295588}]}, "version": 33}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "raise ValueError('optimizer must support momentum with `cycle_momentum` option enabled')", "step": null, "ts": 1639303022.1295588}]}, "version": 34}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1639303022.1295588}]}, "version": 35}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "ValueError", "step": null, "ts": 1639303022.1295588}]}, "version": 36}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": ": ", "step": null, "ts": 1639303022.1295588}]}, "version": 37}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "optimizer must support momentum with `cycle_momentum` option enabled", "step": null, "ts": 1639303022.1295588}]}, "version": 38}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1639303022.1295588}]}, "version": 39}
