@@ -17,7 +17,7 @@ run = neptune.init(
     run="DEEP-35"
     )
 
-net = run['network1/network_weights'].download()
+net = run['network2/network_weights'].download()
 print(net)
 run.stop()
 
