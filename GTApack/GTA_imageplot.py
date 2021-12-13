@@ -29,12 +29,18 @@ def GTA_imageplot(image, target, output = None):
 
     f = plt.figure()
     f.add_subplot(1, num, 1)
+    plt.title('Input')
+    plt.axis('off')
     plt.imshow(np.transpose(image.numpy(), (1, 2, 0)))
     f.add_subplot(1, num, 2)
+    plt.title('Target')
+    plt.axis('off')
     plt.imshow(np.transpose(target.numpy(), (1, 2, 0)))
 
     if not(output == None):
         f.add_subplot(1, num, 3)
+        plt.title('Prediction')
+        plt.axis('off')
         plt.imshow(np.transpose(output.numpy(), (1, 2, 0)))
 
     plt.show(block=True)

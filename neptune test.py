@@ -44,7 +44,7 @@ images, targets = dataiter.next()
 
 model = GTA_Unet(n_channels = 3, n_classes = 9)
 
-model.load_state_dict(torch.load("network_weights.pt"))
+model.load_state_dict(torch.load("network_weights"))
 
 model.to(device)
 
@@ -59,11 +59,3 @@ colors = {(0, 0, 0):0, (244, 35, 232):1, (128, 64, 128):2, (0, 0, 142):3,
 
 GTA_imageplot(images[0].cpu(), GTA_antihot(targets.cpu()[0], colors, 400, 300),
               GTA_antihot(GTA_prop_to_hot(pred.cpu().detach(), 9, 400, 300), colors, 400, 300))
-
-
-
-
-
-#optimizer = torch.optim.SGD(model.parameters(), lr=0.5)
-#lr_scheduler_1 = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=20, eta_min=0.1)
-#lr_scheduler_2 = torch.optim.lr_scheduler.CyclicLR(optimizer, base_lr=0.1, max_lr=0.3, step_size_up=1, step_size_down=3)

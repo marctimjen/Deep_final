@@ -263,7 +263,7 @@ for iEpoch in range(nEpoch):
     valid_loss = []
 
 torch.save(model.state_dict(), "C:/Users/Marc/Desktop/Billeder/params/network3.pt")
-run[f"network2/network_weights"].upload(File("C:/Users/Marc/Desktop/Billeder/params/network3.pt"))
+run[f"network3/network_weights"].upload(File("C:/Users/Marc/Desktop/Billeder/params/network3.pt"))
 
 test_acc_per_pic = GTA_tester(model, testloader, 9)
 

@@ -40,7 +40,7 @@ def onehot(image, width: int, height: int, col: dict):
 # Now we can onehot encode some targets:
 img_dim = (400, 300)
 
-for i in range(1, 2442):
+for i in range(755, 2442):
     path = f"C:/Users/Marc/Desktop/Billeder/test2/images/Target ({i}).png"
     img_tar = cv2.imread(path)[:, :, ::-1]
     img_tar = cv2.resize(img_tar, img_dim)
