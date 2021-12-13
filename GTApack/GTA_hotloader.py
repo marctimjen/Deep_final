@@ -26,7 +26,7 @@ class GTA_hotloader(Dataset):
         self.data = []
         for i in ind:
             self.data.append([self.imgs_path + f"images/Input ({i}).png",
-                        self.imgs_path + f"onehot/one ({i}).pt"])
+                        self.imgs_path + f"onehot/onehot ({i}).pt"])
 
         self.img_dim = (width, height)
 

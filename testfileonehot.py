@@ -19,7 +19,6 @@ import matplotlib.pyplot as plt
 
 
 device = "cpu"
-print(device)
 
 model = GTA_Unet(n_channels = 3, n_classes = 7)
 model.load_state_dict(torch.load("C:/Users/Marc/Desktop/Billeder/params/onehot/GTA_Unet_params.pt"))
@@ -38,7 +37,7 @@ testloader = torch.utils.data.DataLoader(testload,
                                           batch_size=batch_size,
                                           shuffle=True,
                                           num_workers=0)
-
+start = time.time()
 # Test accuarcy:
 test_acc_per_map = []
 
@@ -51,8 +50,14 @@ for img, lab in testloader:
         y_pred = model(img)
 
         for i in range(lab.shape[0]):
-            test_acc_per_map.append(np.mean((GTA_prop_to_hot(y_pred.cpu().detach(), 7, 400, 300) == lab[i].cpu()).numpy()))
+            test_acc_per_map.append(np.mean(
+            (torch.argmax(
+            GTA_prop_to_hot(y_pred.cpu().detach(), 7, 400, 300), dim = 1) ==
+            torch.argmax(lab[i].cpu(), dim = 1)).numpy()))
 
+end = time.time()
+
+print(end - start)
 
 print(test_acc_per_map)
 print(np.mean(test_acc_per_map))

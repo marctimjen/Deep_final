@@ -1,0 +1,20 @@
+{"obj": {"type": "LogFloats", "path": ["monitoring", "cpu"], "values": [{"value": 8.1, "step": null, "ts": 1639298468.4684083}]}, "version": 1}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "memory"], "values": [{"value": 6.972084045410156, "step": null, "ts": 1639298468.4684083}]}, "version": 2}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "gpu_memory"], "values": [{"value": 0.051025390625, "step": null, "ts": 1639298468.4684083}]}, "version": 3}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "r", "step": null, "ts": 1639298468.860665}]}, "version": 4}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1639298468.860665}]}, "version": 5}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "traceback"], "values": [{"value": "An uncaught exception occurred while run was active on worker DESKTOP-SDMAFDQ.", "step": null, "ts": 1639298468.861666}, {"value": "Marking run as failed", "step": null, "ts": 1639298468.861666}, {"value": "Traceback:", "step": null, "ts": 1639298468.861666}, {"value": "  File \"C:\\Users\\Marc\\Documents\\GitHub\\Deep_final\\neptune test.py\", line 22, in <module>\n    model.load_state_dict(net.iloc[0][\"value\"])\n", "step": null, "ts": 1639298468.861666}, {"value": "  File \"C:\\Users\\Marc\\anaconda3\\envs\\deep\\lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1455, in load_state_dict\n    state_dict = state_dict.copy()\n", "step": null, "ts": 1639298468.861666}, {"value": "'str' object has no attribute 'copy'", "step": null, "ts": 1639298468.861666}]}, "version": 6}
+{"obj": {"type": "AssignBool", "path": ["sys", "failed"], "value": true}, "version": 7}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "Traceback (most recent call last):\n", "step": null, "ts": 1639298468.861666}]}, "version": 8}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "  File \"C:\\Users\\Marc\\Documents\\GitHub\\Deep_final\\neptune test.py\", line 22, in <module>\n", "step": null, "ts": 1639298468.8626668}]}, "version": 9}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "    ", "step": null, "ts": 1639298468.8626668}]}, "version": 10}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "model.load_state_dict(net.iloc[0][\"value\"])", "step": null, "ts": 1639298468.8626668}]}, "version": 11}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1639298468.8626668}]}, "version": 12}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "  File \"C:\\Users\\Marc\\anaconda3\\envs\\deep\\lib\\site-packages\\torch\\nn\\modules\\module.py\", line 1455, in load_state_dict\n", "step": null, "ts": 1639298468.8626668}]}, "version": 13}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "    ", "step": null, "ts": 1639298468.8636682}]}, "version": 14}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "state_dict = state_dict.copy()", "step": null, "ts": 1639298468.8636682}]}, "version": 15}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1639298468.8636682}]}, "version": 16}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "AttributeError", "step": null, "ts": 1639298468.864669}]}, "version": 17}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": ": ", "step": null, "ts": 1639298468.864669}]}, "version": 18}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "'str' object has no attribute 'copy'", "step": null, "ts": 1639298468.864669}]}, "version": 19}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1639298468.864669}]}, "version": 20}

@@ -76,8 +76,13 @@ print(img1)
 # Dark blue : other vichels  (0, 0, 142)
 # Very dark blue : big vicheles 0, 0, 70
 # Motor cycle : 0, 0, 230
+# cyan : busses 0, 60, 100
+# Train + tram blue: 0, 80, 100
 
-# Red : humans (220, 20, 60)
+
+
+# Red : humans (220, 20, 60)  -
+# another red: motorcyclelists (255, 0, 0)
 
 # Black : own vichele (0, 0, 0)
 # Brown : Trash-cans/fire-hydrants/big signs
@@ -92,6 +97,8 @@ print(img1)
 # Light green : grass
 # Dark green : BUSHES
 
+
+# 608, 909, 910 might be deleted
 
 
 
