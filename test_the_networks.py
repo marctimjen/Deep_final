@@ -39,9 +39,9 @@ run2 = neptune.init(
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(device)
 
-test_set = np.random.randint(low = 1, high = 2442, size = 200)
+test_set = np.random.randint(low = 1, high = 858, size = 200)
 
-dataset = GTA_hotloader(path = "C:/Users/Marc/Desktop/Billeder/test2/", width = 400, height = 300, ind = test_set, device = device)
+dataset = GTA_hotloader(path = "C:/Users/Marc/Desktop/Billeder/test-val/", width = 400, height = 300, ind = test_set, device = device)
 
 
 batch_size = 1
@@ -57,7 +57,7 @@ for i in range(1, 8):
     #net = run[f'network{i}/network_weights'].download()
 
     model = GTA_Unet(n_channels = 3, n_classes = 9)
-    model.load_state_dict(torch.load(f"C:/Users/Marc/Desktop/Billeder/params/network{i}.pt"))
+    model.load_state_dict(torch.load(f"C:/Users/Marc/Desktop/Billeder/params/The seven/network{i}.pt"))
     model.to(device)
 
     test_acc_per_pic = GTA_tester(model, testloader, 9)

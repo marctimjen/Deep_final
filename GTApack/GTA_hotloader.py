@@ -35,7 +35,6 @@ class GTA_hotloader(Dataset):
 
     def __getitem__(self, idx):
         img_in_path, img_tar_path = self.data[idx] # Path for target + input
-
         img_in = cv2.imread(img_in_path)[:, :, ::-1]
         img_in = cv2.resize(img_in, self.img_dim)
         img_input = torch.from_numpy(img_in)

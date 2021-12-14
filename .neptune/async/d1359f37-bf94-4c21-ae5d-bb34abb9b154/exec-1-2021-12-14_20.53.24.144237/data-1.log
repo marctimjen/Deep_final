@@ -1,0 +1,19 @@
+{"obj": {"type": "LogFloats", "path": ["monitoring", "cpu"], "values": [{"value": 52.7, "step": null, "ts": 1639511604.2553396}]}, "version": 1}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "memory"], "values": [{"value": 8.5223388671875, "step": null, "ts": 1639511604.2553396}]}, "version": 2}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "gpu"], "values": [{"value": 77.0, "step": null, "ts": 1639511604.2553396}]}, "version": 3}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "gpu_memory"], "values": [{"value": 2.83062744140625, "step": null, "ts": 1639511604.2553396}]}, "version": 4}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "traceback"], "values": [{"value": "An uncaught exception occurred while run was active on worker DESKTOP-SDMAFDQ.", "step": null, "ts": 1639511604.7627416}, {"value": "Marking run as failed", "step": null, "ts": 1639511604.7627416}, {"value": "Traceback:", "step": null, "ts": 1639511604.7627416}, {"value": "  File \"C:\\Users\\Marc\\Documents\\GitHub\\Deep_final\\learn.py\", line 13, in <module>\n    acc = run['network/validation_acc_per_pic'].fetch_values()\n", "step": null, "ts": 1639511604.7627416}, {"value": "  File \"C:\\Users\\Marc\\anaconda3\\envs\\deep\\lib\\site-packages\\neptune\\new\\handler.py\", line 69, in __getattr__\n    raise AttributeError(f\"No such method '{attribute_name}'.\")\n", "step": null, "ts": 1639511604.7627416}, {"value": "No such method 'fetch_values'.", "step": null, "ts": 1639511604.7627416}]}, "version": 5}
+{"obj": {"type": "AssignBool", "path": ["sys", "failed"], "value": true}, "version": 6}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "Traceback (most recent call last):\n", "step": null, "ts": 1639511604.7627416}]}, "version": 7}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "  File \"C:\\Users\\Marc\\Documents\\GitHub\\Deep_final\\learn.py\", line 13, in <module>\n", "step": null, "ts": 1639511604.7637424}]}, "version": 8}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "    ", "step": null, "ts": 1639511604.7637424}]}, "version": 9}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "acc = run['network/validation_acc_per_pic'].fetch_values()", "step": null, "ts": 1639511604.7637424}]}, "version": 10}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1639511604.7637424}]}, "version": 11}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "  File \"C:\\Users\\Marc\\anaconda3\\envs\\deep\\lib\\site-packages\\neptune\\new\\handler.py\", line 69, in __getattr__\n", "step": null, "ts": 1639511604.764744}]}, "version": 12}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "    ", "step": null, "ts": 1639511604.764744}]}, "version": 13}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "raise AttributeError(f\"No such method '{attribute_name}'.\")", "step": null, "ts": 1639511604.764744}]}, "version": 14}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1639511604.764744}]}, "version": 15}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "AttributeError", "step": null, "ts": 1639511604.764744}]}, "version": 16}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": ": ", "step": null, "ts": 1639511604.764744}]}, "version": 17}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "No such method 'fetch_values'.", "step": null, "ts": 1639511604.764744}]}, "version": 18}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1639511604.7657447}]}, "version": 19}
