@@ -13,10 +13,10 @@ token = os.getenv('Neptune_api')
 run = neptune.init(
     project="Deep-Learning-test/Deep-Learning-Test",
     api_token=token,
-    run="DEEP-35"
+    run="DEEP-78"
     )
 
-net = run['network2/network_weights'].download()
+net = run['network_cycl/network_weights'].download()
 run.stop()
 
 model = GTA_Unet(n_channels = 3, n_classes = 9)
@@ -41,11 +41,12 @@ def screen_record():
         printscreen =  np.array(ImageGrab.grab(bbox=(0,25,800,625)))
         print(f'loop took {(w := time.time()) - last_time} seconds')
         last_time = w
-        img_resize = np.transpose(cv2.resize(printscreen, img_dim), (2, 0, 1))
+        img_resize = np.transpose((v := cv2.resize(printscreen, img_dim)), (2, 0, 1))
         val = torch.from_numpy(np.array([img_resize])).type(torch.float)
         pred = model(val)
         pred = GTA_antihot(GTA_prop_to_hot(pred, 9, width, height), colors, width, height)
-        cv2.imshow('window',cv2.cvtColor(np.transpose(pred.detach().numpy(), (1, 2, 0)), cv2.COLOR_BGR2RGB))
+        cv2.imshow('window1',cv2.cvtColor(np.transpose(pred.detach().numpy(), (1, 2, 0)), cv2.COLOR_BGR2RGB))
+        cv2.imshow('window2',cv2.cvtColor(v, cv2.COLOR_BGR2RGB))
         if cv2.waitKey(25) & 0xFF == ord('q'):
             cv2.destroyAllWindows()
             break

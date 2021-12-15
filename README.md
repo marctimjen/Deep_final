@@ -19,9 +19,25 @@ GTApack: Is a package containing functions that is reused.
  Old functions or files: Retired files that is no longer in use.
   - GTA_Unetpadding: Experimentation with using padding on the network.
 
+train7networks: Contain the training and testing process of the seven test
+                networks - these where used to determine which optimizor and
+                schedulers where the best for the network.
 
+max_learning-finder: Contain the pre-run of the network. The data generated
+                     from this file where used to find the optimal base_lr and
+                     maximum learning rate.
 
-trainer: This file contain the 7 different runs of the network.
+max_learnplotter: Contain the code to produce the plots used for obtaining the
+                  base_lr and maximum learning rate from the data generated
+                  by max_learning-finder.
+
+train2networks: Contain the training and testing process of the network_cycl
+                and network_reduce that where the best candidates from the 7
+                networks.
+
+final-network: Contain the training and testing process of the network we found
+               to be the best in terms of hyper-parameter tuning.
+
 
 plotting-results: This file plots the input, target and prediction from a
                   network.

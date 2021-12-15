@@ -27,14 +27,6 @@ print(device)
 
 # Set up the datasets
 
-#val_set, train_set = torch.utils.data.random_split(
-#                                [i for i in range(1, 7)], [1, 5],
-#                                generator=torch.Generator().manual_seed(42))
-
-#val_set, train_set = torch.utils.data.random_split(
-#                                [i for i in range(1, 2498)], [250, 2247],
-#                                generator=torch.Generator().manual_seed(42))
-
 np.random.seed(42)
 
 val_set, train_set = torch.utils.data.random_split(
@@ -44,9 +36,6 @@ val_set, train_set = torch.utils.data.random_split(
 
 test_set = np.random.randint(low = 1, high = 2478, size = 100)
 
-#test_set = np.random.randint(low = 1, high = 2478, size = 500)
-
-#test_set = np.random.randint(low = 1, high = 2478, size = 100)
 
 
 valload = GTA_hotloader(path = "C:/Users/Marc/Desktop/Billeder/train/",
