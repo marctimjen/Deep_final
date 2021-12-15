@@ -5,11 +5,11 @@ import time
 from GTApack.GTA_Unet import GTA_Unet
 import torch
 import neptune.new as neptune
+import os
 from GTApack.GTA_prop_to_hot import GTA_prop_to_hot
 from GTApack.GTA_antihot import GTA_antihot
 
-
-token = "eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI5ZjQ1MjNhYi0zN2YzLTRlZDAtOWExYy1jMjEyMjYxMjhhMmMifQ=="
+token = os.getenv('Neptune_api')
 run = neptune.init(
     project="Deep-Learning-test/Deep-Learning-Test",
     api_token=token,

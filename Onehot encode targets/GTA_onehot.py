@@ -15,7 +15,8 @@ colors = {(0, 0, 0):0, (244, 35, 232):1, (128, 64, 128):2, (0, 0, 142):3,
 def onehot(image, width: int, height: int, col: dict):
     """
     This function takes the target pictures and onehot encode them. The amount
-    of classes are defined by the size of the col dictionary.
+    of classes are defined by the amount of different classes in the col
+    dictionary.
 
     Args:
         image (tensor): target image meant to be onehot encoded.

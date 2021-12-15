@@ -1,7 +1,8 @@
 import neptune.new as neptune
+import os
 import matplotlib.pyplot as plt
 
-token = "eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI5ZjQ1MjNhYi0zN2YzLTRlZDAtOWExYy1jMjEyMjYxMjhhMmMifQ=="
+token = os.getenv('Neptune_api')
 run = neptune.init(
     project="Deep-Learning-test/Deep-Learning-Test",
     api_token=token,

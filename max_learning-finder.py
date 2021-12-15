@@ -1,4 +1,5 @@
 import neptune.new as neptune
+import os
 from GTApack.GTA_hotloader import GTA_hotloader
 from GTApack.GTA_antihot import GTA_antihot
 from GTApack.GTA_Unetpadding import GTA_Unetpadding
@@ -27,13 +28,6 @@ print(device)
 
 # Set up the datasets
 
-#val_set, train_set = torch.utils.data.random_split(
-#                                [i for i in range(1, 7)], [1, 5],
-#                                generator=torch.Generator().manual_seed(42))
-
-#val_set, train_set = torch.utils.data.random_split(
-#                                [i for i in range(1, 2498)], [250, 2247],
-#                                generator=torch.Generator().manual_seed(42))
 
 np.random.seed(42)
 
@@ -42,11 +36,7 @@ val_set, train_set = torch.utils.data.random_split(
                             [60, 440],
                             generator=torch.Generator().manual_seed(42))
 
-test_val_set = np.random.randint(low = 1, high = 856, size = 200) # 100
-
-#test_set = np.random.randint(low = 1, high = 2478, size = 500)
-
-#test_set = np.random.randint(low = 1, high = 2478, size = 100)
+test_val_set = np.random.randint(low = 1, high = 856, size = 200)
 
 
 valload = GTA_hotloader(path = "C:/Users/Marc/Desktop/Billeder/train/",
@@ -79,14 +69,12 @@ testloader = torch.utils.data.DataLoader(testload,
                                           shuffle=True,
                                           num_workers=0)
 
-
-token = "eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI5ZjQ1MjNhYi0zN2YzLTRlZDAtOWExYy1jMjEyMjYxMjhhMmMifQ=="
-
+token = os.getenv('Neptune_api')
 
 run = neptune.init(
     project="Deep-Learning-test/Deep-Learning-Test",
     api_token=token,
-)  # your credentials
+)
 
 
 nEpoch = 41

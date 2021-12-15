@@ -4,19 +4,19 @@ import numpy as np
 
 def GTA_imageplot(image, target, output = None):
     """
-    This function makes a plot of the input and the target (can also be output
-    from the network). Note that the input and target can be in tensor format,
-    but can't be in a minibatch.
+    This function makes a plot of the input and the target (can also plot
+    prediction if given). Note that the input and target can be in tensor
+    format, but can't be in a minibatch.
 
     Args:
         image (tensor): the input image.
         target (tensor): the target in image format.
         output (tensor): the output from the network. Will not be plottet if not
-        given. Remember to detach the tensor before calling to this function.
+        given. Remember to detach the tensor before sending it to this function.
 
     Plots:
-        Makes a plot with the input on the left and the target and output on the
-        right.
+        Makes a plot with the input on the left and the target and/or output on
+        the right.
     """
 
     image = image.to("cpu")

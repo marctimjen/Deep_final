@@ -1,4 +1,5 @@
 import neptune.new as neptune
+import os
 from GTApack.GTA_Unet import GTA_Unet
 from GTApack.GTA_hotloader import GTA_hotloader
 from GTApack.GTA_imageplot import GTA_imageplot
@@ -10,12 +11,12 @@ import numpy as np
 #from collections import OrderedDict
 #import json
 
-token = "eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI5ZjQ1MjNhYi0zN2YzLTRlZDAtOWExYy1jMjEyMjYxMjhhMmMifQ=="
+token = os.getenv('Neptune_api')
 run = neptune.init(
     project="Deep-Learning-test/Deep-Learning-Test",
     api_token=token,
     run="DEEP-35"
-    )
+)
 
 net = run['network2/network_weights'].download()
 print(net)

@@ -3,54 +3,84 @@ import torch
 import torch.nn.functional as F
 
 
+# We have taken inspiration from:
+# https://github.com/milesial/Pytorch-UNet
+
 class Double_Convolution(nn.Module): # Blue arrow
+    """
+    This class constitute two dark blue arrows in the U-net figure. So it does
+    a double convolution.
+    """
     def __init__(self, in_channels, out_channels, up_conv = False):
+        """
+        Args:
+            in_channels (int): The amount of channels of the input.
+            out_channels (int): The amount of channels the output tensor gets.
+            up_conv (bool): Indicator if the function should do an
+            up-convolution.
+        """
         super().__init__()
         if up_conv:
-            self.double_conv = nn.Sequential(
-                nn.ConvTranspose2d(in_channels, out_channels, kernel_size=3),
-                nn.BatchNorm2d(out_channels),
-                nn.ReLU(),
-                nn.ConvTranspose2d(out_channels, out_channels, kernel_size=3),
-                nn.BatchNorm2d(out_channels),
-                nn.ReLU()
-            )
+            self.conv1 = nn.ConvTranspose2d(in_channels, out_channels,
+                                            kernel_size=3)
+
+            self.conv2 = nn.ConvTranspose2d(out_channels, out_channels,
+                                            kernel_size=3)
         else:
-            self.double_conv = nn.Sequential(
-                nn.Conv2d(in_channels, out_channels, kernel_size=3),
-                nn.BatchNorm2d(out_channels),
-                nn.ReLU(),
-                nn.Conv2d(out_channels, out_channels, kernel_size=3),
-                nn.BatchNorm2d(out_channels),
-                nn.ReLU()
-            )
+            self.conv1 = nn.Conv2d(in_channels, out_channels, kernel_size=3)
+            self.conv2 = nn.Conv2d(out_channels, out_channels, kernel_size=3)
+
+        self.norm1 = nn.BatchNorm2d(out_channels)
+        self.norm2 = nn.BatchNorm2d(out_channels)
+        self.relu = nn.ReLU()
+
     def forward(self, x):
-        return self.double_conv(x)
+        x = self.conv1(x)
+        x = self.norm1(x)
+        x = self.relu(x)
+        x = self.conv2(x)
+        x = self.norm2(x)
+        x = self.relu(x)
+        return x
 
 
-class Down_Scale(nn.Module): # red + double_conv
+class Down_Scale(nn.Module): # red arrow + double_conv
+    """
+    This class constitute one red and two dark blue arrows in the U-net figure.
+    So this is the function that does the down-sampling of the net.
+    """
     def __init__(self, in_channels, out_channels):
+        """
+        Args:
+            in_channels (int): The amount of channels of the input.
+            out_channels (int): The amount of channels the output tensor gets.
+        """
         super().__init__()
-        self.maxpool_conv = nn.Sequential(
-            nn.MaxPool2d(2),
-            Double_Convolution(in_channels, out_channels)
-        )
+        self.pool = nn.MaxPool2d(2)
+        self.doub = Double_Convolution(in_channels, out_channels)
     def forward(self, x):
-        return self.maxpool_conv(x)
+        x = self.pool(x)
+        x = self.doub(x)
+        return x
 
 
-class Up_Scale(nn.Module):
-    '''
-    - up_scales the data dimension
-    - padding to match the shape of down_scaling copy
-    - concatenates with the copy
-    - double convolution
-
-    '''
+class Up_Scale(nn.Module): # green arrow + double_conv
+    """
+    This class constitute one green and two dark blue arrows in the U-net
+    figure. So this is the function that does the up-sampling of the net.
+    """
     def __init__(self, in_channels, out_channels, up_conv = False):
+        """
+        Args:
+            in_channels (int): The amount of channels of the input.
+            out_channels (int): The amount of channels the output tensor gets.
+            up_conv (bool): Indicator if the function should do an
+            up-convolution.
+        """
         super().__init__()
         self.up = nn.Upsample(scale_factor=2, mode='nearest')
-        self.up_conv1 = nn.ConvTranspose2d(in_channels, out_channels, kernel_size = 2)
+        self.up_conv1 = nn.ConvTranspose2d(in_channels, out_channels,
+                                            kernel_size = 2)
         self.doub = Double_Convolution(in_channels, out_channels, up_conv)
 
     def forward(self, x, y):
@@ -60,14 +90,25 @@ class Up_Scale(nn.Module):
         diffY = y.size()[2] - x.size()[2]
         diffX = y.size()[3] - x.size()[3]
 
-        x = F.pad(x, [diffX // 2, diffX - diffX // 2, diffY // 2, diffY - diffY // 2])
+        x = F.pad(x, [diffX // 2, diffX - diffX // 2,
+                      diffY // 2, diffY - diffY // 2]) # make the dimentions fit
 
         x = torch.cat([y, x], dim=1)
         x = self.doub(x)
         return x
 
-class OutConv(nn.Module):
+class OutConv(nn.Module): # light-blue arrow
+    """
+    This class constitute light-blue arrows in the U-net figure. So this is the
+    function that does the 1x1 convolution and makes the channels fit to the
+    desired output.
+    """
     def __init__(self, in_channels, out_channels):
+        """
+        Args:
+            in_channels (int): The amount of channels of the input.
+            out_channels (int): The amount of channels the output tensor gets.
+        """
         super(OutConv, self).__init__()
         self.conv = nn.Conv2d(in_channels, out_channels, kernel_size=1)
         self.soft = nn.Softmax(dim=1)
@@ -78,7 +119,15 @@ class OutConv(nn.Module):
 
 
 class GTA_Unet(nn.Module):
+    """
+    This class is the network. So it combines the subparts listed above.
+    """
     def __init__(self, n_channels, n_classes):
+        """
+        Args:
+            n_channels (int): The amount of channels of the input.
+            n_classes (int): The amount of channels the output tensor gets.
+        """
         super(GTA_Unet, self).__init__()
 
         self.n_channels = n_channels
@@ -105,5 +154,5 @@ class GTA_Unet(nn.Module):
         x = self.up2(x, x3)
         x = self.up3(x, x2)
         x = self.up4(x, x1)
-        logits = self.outc(x)
-        return logits
+        output = self.outc(x)
+        return output
