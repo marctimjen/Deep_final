@@ -1,7 +1,7 @@
 import neptune.new as neptune
+import os
 from GTApack.GTA_hotloader import GTA_hotloader
 from GTApack.GTA_antihot import GTA_antihot
-from GTApack.GTA_Unetpadding import GTA_Unetpadding
 from GTApack.GTA_Unet import GTA_Unet
 from GTApack.GTA_prop_to_hot import GTA_prop_to_hot
 from GTApack.GTA_tester import GTA_tester
@@ -80,8 +80,7 @@ testloader = torch.utils.data.DataLoader(testload,
                                           num_workers=0)
 
 
-token = "eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI5ZjQ1MjNhYi0zN2YzLTRlZDAtOWExYy1jMjEyMjYxMjhhMmMifQ=="
-
+token = os.getenv('Neptune_api')
 
 run = neptune.init(
     project="Deep-Learning-test/Deep-Learning-Test",
@@ -90,8 +89,6 @@ run = neptune.init(
 
 
 nEpoch = 50
-
-
 
 
 # Network 1
@@ -138,7 +135,7 @@ for iEpoch in range(nEpoch):
 torch.save(model.state_dict(), "C:/Users/Marc/Desktop/Billeder/params/network1.pt")
 run[f"network1/network_weights"].upload(File("C:/Users/Marc/Desktop/Billeder/params/network1.pt"))
 
-test_acc_per_pic = GTA_tester(model, testloader, 9)
+test_acc_per_pic = GTA_tester(model, testloader)
 
 print(np.mean(test_acc_per_pic))
 
@@ -202,7 +199,7 @@ torch.save(model.state_dict(), "C:/Users/Marc/Desktop/Billeder/params/network2.p
 run[f"network2/network_weights"].upload(File("C:/Users/Marc/Desktop/Billeder/params/network2.pt"))
 
 
-test_acc_per_pic = GTA_tester(model, testloader, 9)
+test_acc_per_pic = GTA_tester(model, testloader)
 
 print(np.mean(test_acc_per_pic))
 
@@ -263,9 +260,9 @@ for iEpoch in range(nEpoch):
     valid_loss = []
 
 torch.save(model.state_dict(), "C:/Users/Marc/Desktop/Billeder/params/network3.pt")
-run[f"network2/network_weights"].upload(File("C:/Users/Marc/Desktop/Billeder/params/network3.pt"))
+run[f"network3/network_weights"].upload(File("C:/Users/Marc/Desktop/Billeder/params/network3.pt"))
 
-test_acc_per_pic = GTA_tester(model, testloader, 9)
+test_acc_per_pic = GTA_tester(model, testloader)
 
 print(np.mean(test_acc_per_pic))
 
@@ -329,7 +326,7 @@ torch.save(model.state_dict(), "C:/Users/Marc/Desktop/Billeder/params/network4.p
 run[f"network4/network_weights"].upload(File("C:/Users/Marc/Desktop/Billeder/params/network4.pt"))
 
 
-test_acc_per_pic = GTA_tester(model, testloader, 9)
+test_acc_per_pic = GTA_tester(model, testloader)
 
 print(np.mean(test_acc_per_pic))
 
@@ -391,7 +388,7 @@ torch.save(model.state_dict(), "C:/Users/Marc/Desktop/Billeder/params/network5.p
 run[f"network5/network_weights"].upload(File("C:/Users/Marc/Desktop/Billeder/params/network5.pt"))
 
 
-test_acc_per_pic = GTA_tester(model, testloader, 9)
+test_acc_per_pic = GTA_tester(model, testloader)
 
 print(np.mean(test_acc_per_pic))
 
@@ -454,7 +451,7 @@ torch.save(model.state_dict(), "C:/Users/Marc/Desktop/Billeder/params/network6.p
 run[f"network6/network_weights"].upload(File("C:/Users/Marc/Desktop/Billeder/params/network6.pt"))
 
 
-test_acc_per_pic = GTA_tester(model, testloader, 9)
+test_acc_per_pic = GTA_tester(model, testloader)
 
 print(np.mean(test_acc_per_pic))
 
@@ -527,7 +524,7 @@ torch.save(model.state_dict(), "C:/Users/Marc/Desktop/Billeder/params/network7.p
 run[f"network7/network_weights"].upload(File("C:/Users/Marc/Desktop/Billeder/params/network7.pt"))
 
 
-test_acc_per_pic = GTA_tester(model, testloader, 9)
+test_acc_per_pic = GTA_tester(model, testloader)
 
 print(np.mean(test_acc_per_pic))
 

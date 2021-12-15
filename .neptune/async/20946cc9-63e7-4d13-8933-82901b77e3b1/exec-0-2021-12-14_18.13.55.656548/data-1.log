@@ -1,0 +1,45 @@
+{"obj": {"type": "AssignString", "path": ["sys", "name"], "value": "Untitled"}, "version": 1}
+{"obj": {"type": "AssignString", "path": ["sys", "description"], "value": ""}, "version": 2}
+{"obj": {"type": "AssignString", "path": ["sys", "hostname"], "value": "DESKTOP-SDMAFDQ"}, "version": 3}
+{"obj": {"type": "AssignBool", "path": ["sys", "failed"], "value": false}, "version": 4}
+{"obj": {"type": "ClearStringLog", "path": ["monitoring", "stdout"]}, "version": 5}
+{"obj": {"type": "ClearStringLog", "path": ["monitoring", "stderr"]}, "version": 6}
+{"obj": {"type": "AssignString", "path": ["source_code", "entrypoint"], "value": "max_learning-finder.py"}, "version": 7}
+{"obj": {"type": "UploadFileSet", "path": ["source_code", "files"], "file_globs": ["C:\\Users\\Marc\\Documents\\GitHub\\Deep_final\\max_learning-finder.py"], "reset": "False"}, "version": 8}
+{"obj": {"type": "ConfigFloatSeries", "path": ["monitoring", "cpu"], "min": 0.0, "max": 100.0, "unit": "%"}, "version": 9}
+{"obj": {"type": "ClearFloatLog", "path": ["monitoring", "cpu"]}, "version": 10}
+{"obj": {"type": "ConfigFloatSeries", "path": ["monitoring", "memory"], "min": 0.0, "max": 15.387199401855469, "unit": "GB"}, "version": 11}
+{"obj": {"type": "ClearFloatLog", "path": ["monitoring", "memory"]}, "version": 12}
+{"obj": {"type": "ConfigFloatSeries", "path": ["monitoring", "gpu"], "min": 0.0, "max": 100.0, "unit": "%"}, "version": 13}
+{"obj": {"type": "ClearFloatLog", "path": ["monitoring", "gpu"]}, "version": 14}
+{"obj": {"type": "ConfigFloatSeries", "path": ["monitoring", "gpu_memory"], "min": 0.0, "max": 4.0, "unit": "GB"}, "version": 15}
+{"obj": {"type": "ClearFloatLog", "path": ["monitoring", "gpu_memory"]}, "version": 16}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "cpu"], "values": [{"value": 12.5, "step": null, "ts": 1639502036.0776348}]}, "version": 17}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "memory"], "values": [{"value": 6.994129180908203, "step": null, "ts": 1639502036.0776348}]}, "version": 18}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "gpu_memory"], "values": [{"value": 0.107208251953125, "step": null, "ts": 1639502036.0776348}]}, "version": 19}
+{"obj": {"type": "AssignString", "path": ["network", "parameters", "optimizer"], "value": "SGD"}, "version": 20}
+{"obj": {"type": "AssignFloat", "path": ["network", "parameters", "optimizer_momentum"], "value": 0.9}, "version": 21}
+{"obj": {"type": "AssignInt", "path": ["network", "parameters", "optimizer_learning_rate"], "value": 1}, "version": 22}
+{"obj": {"type": "AssignString", "path": ["network", "parameters", "loss_function"], "value": "MSEloss"}, "version": 23}
+{"obj": {"type": "AssignString", "path": ["network", "parameters", "model"], "value": "GTA_Unet"}, "version": 24}
+{"obj": {"type": "AssignString", "path": ["network", "parameters", "scheduler"], "value": "CyclicLR"}, "version": 25}
+{"obj": {"type": "AssignInt", "path": ["network", "parameters", "scheduler_base_lr"], "value": 1}, "version": 26}
+{"obj": {"type": "AssignInt", "path": ["network", "parameters", "scheduler_max_lr"], "value": 10}, "version": 27}
+{"obj": {"type": "AssignInt", "path": ["network", "parameters", "scheduler_step_size_up"], "value": 40}, "version": 28}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "Training epoch 0", "step": null, "ts": 1639502036.4170275}]}, "version": 29}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1639502036.4170275}]}, "version": 30}
+{"obj": {"type": "LogFloats", "path": ["network", "learning_rate"], "values": [{"value": 1.0, "step": null, "ts": 1639502036.4170275}]}, "version": 31}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "cpu"], "values": [{"value": 42.3, "step": null, "ts": 1639502046.0902178}]}, "version": 32}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "memory"], "values": [{"value": 8.587104797363281, "step": null, "ts": 1639502046.0902178}]}, "version": 33}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "gpu"], "values": [{"value": 75.0, "step": null, "ts": 1639502046.0902178}]}, "version": 34}
+{"obj": {"type": "LogFloats", "path": ["monitoring", "gpu_memory"], "values": [{"value": 2.02435302734375, "step": null, "ts": 1639502046.0902178}]}, "version": 35}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "traceback"], "values": [{"value": "An uncaught exception occurred while run was active on worker DESKTOP-SDMAFDQ.", "step": null, "ts": 1639502052.1680038}, {"value": "Marking run as failed", "step": null, "ts": 1639502052.1680038}, {"value": "Traceback:", "step": null, "ts": 1639502052.1680038}, {"value": "  File \"C:\\Users\\Marc\\Documents\\GitHub\\Deep_final\\max_learning-finder.py\", line 129, in <module>\n    train_loss.append(loss.item())\n", "step": null, "ts": 1639502052.1680038}, {"value": "", "step": null, "ts": 1639502052.1680038}]}, "version": 36}
+{"obj": {"type": "AssignBool", "path": ["sys", "failed"], "value": true}, "version": 37}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "Traceback (most recent call last):\n", "step": null, "ts": 1639502052.1680038}]}, "version": 38}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "  File \"C:\\Users\\Marc\\Documents\\GitHub\\Deep_final\\max_learning-finder.py\", line 129, in <module>\n", "step": null, "ts": 1639502052.169005}]}, "version": 39}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "    ", "step": null, "ts": 1639502052.169005}]}, "version": 40}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "train_loss.append(loss.item())", "step": null, "ts": 1639502052.169005}]}, "version": 41}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1639502052.169005}]}, "version": 42}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "KeyboardInterrupt", "step": null, "ts": 1639502052.1700058}]}, "version": 43}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "", "step": null, "ts": 1639502052.1700058}]}, "version": 44}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1639502052.1700058}]}, "version": 45}

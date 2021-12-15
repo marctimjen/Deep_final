@@ -13,14 +13,14 @@ print(device)
 # Set up the dataset.
 #dataset = GTA_hotloader(path = "C:/Users/Marc/Desktop/Billeder/images/", width = 400, height = 300, device = device)
 
-val_set, train_set = torch.utils.data.random_split([i for i in range(0, 1200)], [120, 1080],
+val_set, train_set = torch.utils.data.random_split([i for i in range(1, 858)], [1, 856],
                                     generator=torch.Generator().manual_seed(42))
 
 
-train_set = np.random.randint(1200, size=10)
+#train_set = np.random.randint(1200, size=10)
 print(type(train_set))
 
-dataset = GTA_hotloader(path = "C:/Users/Marc/Desktop/Billeder/train/", width = 400, height = 300, ind = train_set, device = device)
+dataset = GTA_hotloader(path = "C:/Users/Marc/Desktop/Billeder/test-val/", width = 400, height = 300, ind = train_set, device = device)
 
 
 #print([i for i in val_set])

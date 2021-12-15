@@ -4,8 +4,7 @@ from torch.utils.data import Dataset, DataLoader
 
 class GTA_hotloader(Dataset):
     """
-    This data-loader reads images and targets. In this format neither the target
-    nor the input are onehot encoded.
+    This dataloader loads input images and onehot encoded targets.
     """
     def __init__(self, path: str, width: int, height: int, ind: list, device):
         """
@@ -16,9 +15,6 @@ class GTA_hotloader(Dataset):
             ind (list): list of indices for which pictures to load.
             device (class 'torch.device'): which pytorch device the data should
             be sent to.
-
-        Return:
-            minibatch (tensor): containing the input and target.
         """
 
         self.device = device
@@ -35,7 +31,6 @@ class GTA_hotloader(Dataset):
 
     def __getitem__(self, idx):
         img_in_path, img_tar_path = self.data[idx] # Path for target + input
-
         img_in = cv2.imread(img_in_path)[:, :, ::-1]
         img_in = cv2.resize(img_in, self.img_dim)
         img_input = torch.from_numpy(img_in)
