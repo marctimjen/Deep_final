@@ -30,11 +30,11 @@ np.random.seed(42)
 
 
 val_set, train_set = torch.utils.data.random_split(
-                            np.random.randint(low = 1, high = 4962, size = 8),
-                            [1, 7],
+                            np.random.randint(low = 1, high = 4962, size = 2400),
+                            [300, 2100],
                             generator=torch.Generator().manual_seed(42))
 
-test_val_set = np.random.randint(low = 1, high = 2442, size = 2)
+test_val_set = np.random.randint(low = 1, high = 2255, size = 600)
 
 
 

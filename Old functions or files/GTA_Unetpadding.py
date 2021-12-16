@@ -1,6 +1,8 @@
 import torch.nn as nn
 import torch
 
+# We have taken inspiration from:
+# https://github.com/milesial/Pytorch-UNet
 
 class Double_Convolution(nn.Module): # Blue arrow
     def __init__(self, in_channels, out_channels):
