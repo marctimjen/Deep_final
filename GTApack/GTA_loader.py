@@ -2,6 +2,8 @@ import cv2
 import torch
 from torch.utils.data import Dataset, DataLoader
 
+# Inspiration taken from part 2 assignment 1.
+
 class GTA_loader(Dataset):
     """
     This dataloader load images and targets. In this format neither the target

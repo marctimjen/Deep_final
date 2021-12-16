@@ -2,6 +2,8 @@ import cv2
 import torch
 from torch.utils.data import Dataset, DataLoader
 
+# Inspiration taken from part 2 assignment 1.
+
 class GTA_hotloader(Dataset):
     """
     This dataloader loads input images and onehot encoded targets.

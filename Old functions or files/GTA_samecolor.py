@@ -11,19 +11,6 @@ colors = [(0, 0, 0), (244, 35, 232), (128, 64, 128), (0, 0, 142),
             (0, 0, 70), (0, 0, 230), (220, 20, 60)]
 
 def samecolor(image, width: int, height: int, col: dict):
-    """
-    This function takes the target pictures and onehot encode them. The amount
-    of classes are defined by the size of the col dictionary.
-
-    Args:
-        image (tensor): target image meant to be onehot encoded.
-        width (int): width of the given image.
-        height (int): height of the given image.
-        col (dict): a mapping of the different colors to differnt layers.
-
-    Return:
-        Tensor: A onehot encoded version of the target image.
-    """
     map = np.zeros((height, width, 3), dtype=int)
     # make empty tensor
 

@@ -34,7 +34,7 @@ val_set, train_set = torch.utils.data.random_split(
                             [60, 440],
                             generator=torch.Generator().manual_seed(42))
 
-test_set = np.random.randint(low = 1, high = 2478, size = 100)
+test_set = np.random.randint(low = 1, high = 858, size = 100)
 
 
 
@@ -46,7 +46,7 @@ trainload = GTA_hotloader(path = "C:/Users/Marc/Desktop/Billeder/train/",
                         width = 400, height = 300, ind = train_set,
                         device = device)
 
-testload = GTA_hotloader(path = "C:/Users/Marc/Desktop/Billeder/test/",
+testload = GTA_hotloader(path = "C:/Users/Marc/Desktop/Billeder/test-val/",
                         width = 400, height = 300, ind = test_set,
                         device = device)
 
