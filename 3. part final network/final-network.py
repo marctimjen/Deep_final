@@ -73,7 +73,7 @@ token = os.getenv('Neptune_api')
 run = neptune.init(
     project="Deep-Learning-test/Deep-Learning-Test",
     api_token=token,
-)  # your credentials
+)
 
 
 nEpoch = 61

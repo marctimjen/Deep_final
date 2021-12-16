@@ -2,7 +2,6 @@ import neptune.new as neptune
 import os
 from GTApack.GTA_hotloader import GTA_hotloader
 from GTApack.GTA_antihot import GTA_antihot
-from GTApack.GTA_Unetpadding import GTA_Unetpadding
 from GTApack.GTA_Unet import GTA_Unet
 from GTApack.GTA_prop_to_hot import GTA_prop_to_hot
 from GTApack.GTA_tester import GTA_tester

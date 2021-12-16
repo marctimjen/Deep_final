@@ -3,13 +3,13 @@ This repository contain material for the final project in deep learning.
 
 The usage of the different files/folders are:
 
-\1. part the seven networks: The training and testing of the inital 7 networks
+\\1. part the seven networks: The training and testing of the inital 7 networks
  - train7networks: Contain the training and testing process of the seven test
                  networks - these where used to determine which optimizor and
                  schedulers where the best for the network.
  - test_the_7_networks: File for testing the network on data.
 
-\2. part  SGD + ReduceLROnPlateau and CyclicLR: The training and testing of the
+\\2. part  SGD + ReduceLROnPlateau and CyclicLR: The training and testing of the
                           networks network_cycl and network_reduce.
  - max_learning-finder: Contain the pre-run of the network. The data generated
                         from this file where used to find the optimal base_lr
@@ -22,7 +22,7 @@ The usage of the different files/folders are:
                    and network_reduce that where the best candidates from the 7
                    networks.                 
 
-\3. part final network:
+\\3. part final network:
  - final-network: Contain the training and testing process of the network we
                   found to be the best in terms of hyper-parameter tuning.
  - plotting-results_of_final: This file plots the input, target and prediction
