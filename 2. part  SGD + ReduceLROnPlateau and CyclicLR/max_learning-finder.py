@@ -11,8 +11,6 @@ from torch.optim import SGD, Adam
 from torch.optim.lr_scheduler import (ReduceLROnPlateau, CyclicLR,
                                      CosineAnnealingLR)
 from torch.utils.data import DataLoader, random_split
-import torch.nn.functional as F
-import torch.nn as nn
 import torch
 import numpy as np
 import time
@@ -82,7 +80,7 @@ nEpoch = 41
 params = {"optimizer":"SGD", "optimizer_momentum": 0.9,
           "optimizer_learning_rate": 1, "loss_function":"MSEloss",
           "model":"GTA_Unet", "scheduler":"CyclicLR",
-          "scheduler_base_lr":1, "scheduler_max_lr":40,
+          "scheduler_base_lr":1, "scheduler_max_lr":10,
           "scheduler_step_size_up":40}
 
 run[f"network/parameters"] = params
@@ -91,7 +89,7 @@ lossFunc = nn.MSELoss()
 model = GTA_Unet(n_channels = 3, n_classes = 9).to(device)
 
 optimizer = SGD(model.parameters(), lr=1, momentum=0.9)
-scheduler = CyclicLR(optimizer, base_lr=1, max_lr=40, step_size_up=40)
+scheduler = CyclicLR(optimizer, base_lr=1, max_lr=10, step_size_up=40)
 
 valid_loss, train_loss = [], []
 

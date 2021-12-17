@@ -66,7 +66,6 @@ for img, lab in trainloader:
 
 #test!
 
-#rom GTApack.GTA_Unetpadding import GTA_Unetpadding
 #
 #from GTApack.GTA_Unet import GTA_Unet
 #from torchvision import datasets, transforms

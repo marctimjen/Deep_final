@@ -11,8 +11,6 @@ from torch.optim import SGD, Adam
 from torch.optim.lr_scheduler import (ReduceLROnPlateau, CyclicLR,
                                      CosineAnnealingLR)
 from torch.utils.data import DataLoader, random_split
-import torch.nn.functional as F
-import torch.nn as nn
 import torch
 import numpy as np
 import time
@@ -74,7 +72,7 @@ token = os.getenv('Neptune_api')
 run = neptune.init(
     project="Deep-Learning-test/Deep-Learning-Test",
     api_token=token,
-)  # your credentials
+)
 
 
 nEpoch = 50

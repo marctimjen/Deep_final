@@ -1,16 +1,16 @@
-# Deep final assignment
+# Deep learning final assignment
 This repository contain material for the final project in deep learning.
 
 The usage of the different files/folders are:
 
-\\1. part the seven networks: The training and testing of the inital 7 networks
+\\1. part the seven networks: The training and testing of the initial 7 networks
  - train7networks: Contain the training and testing process of the seven test
                  networks - these where used to determine which optimizor and
                  schedulers where the best for the network.
- - test_the_7_networks: File for testing the network on data.
+ - test_the_7_networks: File for testing the seven networks.
 
-\\2. part  SGD + ReduceLROnPlateau and CyclicLR: The training and testing of the
-                          networks network_cycl and network_reduce.
+\\2. part SGD + ReduceLROnPlateau and CyclicLR: The training and testing of the
+                          networks: network_cycl and network_reduce.
  - max_learning-finder: Contain the pre-run of the network. The data generated
                         from this file where used to find the optimal base_lr
                         and maximum learning rate.
@@ -20,7 +20,7 @@ The usage of the different files/folders are:
                      produce bilag 4.
  - train2networks: Contain the training and testing process of the network_cycl
                    and network_reduce that where the best candidates from the 7
-                   networks.                 
+                   networks.   
 
 \\3. part final network:
  - final-network: Contain the training and testing process of the network we
@@ -28,10 +28,11 @@ The usage of the different files/folders are:
  - plotting-results_of_final: This file plots the input, target and prediction
                               from a the final-network. This was used to
                               produce bilag 18.
- - test_of_final-network: File for testing the network on data.
+ - test_of_final-network: File for testing the final-network.
 
 
-GTApack: Is a package containing functions that is reused.
+GTApack: Is a package containing functions that is used in the training and
+         testing of different networks.
  - __init__ : Used to make this directory a python package.
  - GTA_antihot: Function used to turn an onehot encoded image into an image with
                 3 channels.

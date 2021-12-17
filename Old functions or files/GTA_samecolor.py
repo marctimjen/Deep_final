@@ -5,8 +5,6 @@ invcol = {0:"everything else", 1:"curb", 2:"road", 3:"cars", 4:"trucks",
             5:"motorcycle", 6:"humans"}
 
 
-
-
 colors = [(0, 0, 0), (244, 35, 232), (128, 64, 128), (0, 0, 142),
             (0, 0, 70), (0, 0, 230), (220, 20, 60)]
 
