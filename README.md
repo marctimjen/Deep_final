@@ -31,7 +31,7 @@ The usage of the different files/folders are:
  - test_of_final-network: File for testing the final-network.
 
 
-GTApack: Is a package containing functions that is used in the training and
+\\GTApack: Is a package containing functions that is used in the training and
          testing of different networks.
  - __init__ : Used to make this directory a python package.
  - GTA_antihot: Function used to turn an onehot encoded image into an image with
@@ -45,7 +45,7 @@ GTApack: Is a package containing functions that is used in the training and
  - GTA_tester: Function for finding the accuarcy of test or validation data.
  - GTA_Unet: The implementation of the Unet.
 
- Old functions or files: Retired files that is no longer in use.
+\\Old functions or files: Retired files that is no longer in use.
 
- Onehot encode targets: This file contain the code used to do the onehot encoding
+\\Onehot encode targets: This file contain the code used to do the onehot encoding
   - GTA_onehot: Code used to generate a onehot encoded format of the targets.

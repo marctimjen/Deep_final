@@ -1,9 +1,7 @@
 import neptune.new as neptune
 import os
 from GTApack.GTA_hotloader import GTA_hotloader
-from GTApack.GTA_antihot import GTA_antihot
 from GTApack.GTA_Unet import GTA_Unet
-from GTApack.GTA_prop_to_hot import GTA_prop_to_hot
 from GTApack.GTA_tester import GTA_tester
 
 from torchvision import datasets, transforms
@@ -11,8 +9,6 @@ from torch.optim import SGD, Adam
 from torch.optim.lr_scheduler import (ReduceLROnPlateau, CyclicLR,
                                      CosineAnnealingLR)
 from torch.utils.data import DataLoader, random_split
-import torch.nn.functional as F
-import torch.nn as nn
 import torch
 import numpy as np
 import time
