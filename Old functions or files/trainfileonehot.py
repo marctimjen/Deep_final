@@ -2,7 +2,6 @@ from GTApack.GTA_loader import GTA_loader
 from GTApack.GTA_hotloader import GTA_hotloader
 from GTApack.GTA_imageplot import GTA_imageplot
 from GTApack.GTA_antihot import GTA_antihot
-from GTApack.GTA_Unetpadding import GTA_Unetpadding
 from GTApack.GTA_Unet import GTA_Unet
 from GTApack.GTA_prop_to_hot import GTA_prop_to_hot
 

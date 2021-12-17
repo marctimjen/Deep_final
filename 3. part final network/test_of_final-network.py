@@ -7,10 +7,7 @@ from GTApack.GTA_prop_to_hot import GTA_prop_to_hot
 from GTApack.GTA_tester import GTA_tester
 
 from torchvision import datasets, transforms
-from torch.optim import SGD
 from torch.utils.data import DataLoader, random_split
-import torch.nn.functional as F
-import torch.nn as nn
 import torch
 import numpy as np
 import time

@@ -41,14 +41,14 @@ def onehot(image, width: int, height: int, col: dict):
 # Now we can onehot encode some targets:
 img_dim = (400, 300)
 
-for i in range(755, 2442):
-    path = f"C:/Users/Marc/Desktop/Billeder/test2/images/Target ({i}).png"
+for i in range(1, 856):
+    path = f"C:/Users/Marc/Desktop/Billeder/test-val/images/Target ({i}).png"
     img_tar = cv2.imread(path)[:, :, ::-1]
     img_tar = cv2.resize(img_tar, img_dim)
     img_target = torch.from_numpy(img_tar)
 
     one = onehot(image = img_target, width = 400, height = 300, col = colors)
 
-    torch.save(one, f'C:/Users/Marc/Desktop/Billeder/test2/onehot/onehot ({i}).pt')
+    torch.save(one, f'C:/Users/Marc/Desktop/Billeder/test-val/onehot/onehot ({i}).pt')
 
     print(i)

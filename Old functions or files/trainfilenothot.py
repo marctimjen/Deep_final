@@ -1,7 +1,6 @@
 from GTApack.GTA_loader import GTA_loader
 from GTApack.GTA_imageplot import GTA_imageplot
 from GTApack.GTA_antihot import GTA_antihot
-from GTApack.GTA_Unetpadding import GTA_Unetpadding
 from GTApack.GTA_Unet import GTA_Unet
 
 from torchvision import datasets, transforms

@@ -27,7 +27,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(device)
 
 
-test_set = np.random.randint(low = 1, high = 2478, size = 10)
+test_set = np.random.randint(low = 1, high = 2255, size = 10)
 
 dataset = GTA_hotloader(path = "C:/Users/Marc/Desktop/Billeder/test/", width = 400, height = 300, ind = test_set, device = device)
 
